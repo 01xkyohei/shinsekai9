@@ -373,7 +373,8 @@ button{
         class="photo"
         id="leftImage"
         alt=""
-      >
+        referrerpolicy="no-referrer
+        >
 
       <div
         class="choice-name"
@@ -388,7 +389,8 @@ button{
         class="photo"
         id="rightImage"
         alt=""
-      >
+        referrerpolicy="no-referrer"
+        >
 
       <div
         class="choice-name"
@@ -731,15 +733,13 @@ const ranking =
    画像エラー対策
 ============================================================ */
 
-function setImage(img,person){
+function setImage(img, person){
+
+  // 公式サイトから画像を読み込む際、
+  // GitHub Pages側のURLをRefererとして送らない
+  img.referrerPolicy = "no-referrer";
 
   img.onerror = () => {
-
-    /*
-      公式画像が現在取得できない場合。
-      他サイトの画像を勝手に使わず、
-      名前入りプレースホルダーにする。
-    */
 
     img.onerror = null;
 
