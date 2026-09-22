@@ -153,11 +153,6 @@ button{
   margin:18px 0 13px;
 }
 
-
-/* =========================
-   2枚を横並び
-========================= */
-
 .choices{
   display:grid;
   grid-template-columns:repeat(2,minmax(0,1fr));
@@ -317,11 +312,6 @@ button{
 
 <div class="app">
 
-
-<!-- =========================
-     START
-========================= -->
-
 <section id="startScreen">
 
   <div class="header">
@@ -340,11 +330,9 @@ button{
 
   </div>
 
-
   <div class="start-visual">
     💘
   </div>
-
 
   <div class="info">
 
@@ -357,7 +345,6 @@ button{
 
   </div>
 
-
   <button
     class="main-button"
     id="startButton"
@@ -367,11 +354,6 @@ button{
 
 </section>
 
-
-
-<!-- =========================
-     GAME
-========================= -->
 
 <section
   id="gameScreen"
@@ -390,7 +372,6 @@ button{
 
   </div>
 
-
   <div class="progress-area">
 
     <div class="progress-label">
@@ -405,7 +386,6 @@ button{
 
     </div>
 
-
     <div class="progress">
 
       <div
@@ -417,13 +397,9 @@ button{
 
   </div>
 
-
   <div class="question">
     どっちの顔が好き？
   </div>
-
-
-  <!-- ★ここが横2列 -->
 
   <div class="choices">
 
@@ -445,7 +421,6 @@ button{
 
     </button>
 
-
     <button
       class="choice"
       id="rightChoice"
@@ -466,18 +441,12 @@ button{
 
   </div>
 
-
   <div class="hint">
     直感でOK♡
   </div>
 
 </section>
 
-
-
-<!-- =========================
-     RESULT
-========================= -->
 
 <section
   id="resultScreen"
@@ -500,12 +469,10 @@ button{
 
   </div>
 
-
   <div
     class="result-grid"
     id="ranking"
   ></div>
-
 
   <div class="result-actions">
 
@@ -516,7 +483,6 @@ button{
       結果をXに投稿する ♡
     </button>
 
-
     <button
       class="secondary-button"
       id="restartButton"
@@ -525,7 +491,6 @@ button{
     </button>
 
   </div>
-
 
   <div class="note">
 
@@ -539,7 +504,6 @@ button{
 </div>
 
 
-
 <script>
 
 /* ============================================================
@@ -548,6 +512,21 @@ button{
 
 const IMAGE_BASE =
 "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/";
+
+
+/* ============================================================
+   自分で用意した画像
+   ------------------------------------------------------------
+   ここに画像を追加すると、その人だけ自前画像を使用します。
+
+   例：
+   "liuweize":"images/liuweize.jpg",
+
+   画像をまだ用意していない人は書かなくてOK。
+============================================================ */
+
+const CUSTOM_IMAGES = {
+};
 
 
 /* ============================================================
@@ -613,7 +592,10 @@ const PEOPLE = [
   ["河合 晃誠","kawaikosei"],
   ["青沼 昂史朗","aonumakoshiro"],
   ["浅香 孝太郎","asakakotaro"],
+
+  /* ★ 正しいslug */
   ["髙谷 京平","takayakyohei"],
+
   ["田中 蒔","tanakamaki"],
   ["森 明育","morimei"],
   ["山根 武蔵","yamanemusashi"],
@@ -642,7 +624,7 @@ const PEOPLE = [
   ["髙橋 空良","takahashisora"],
   ["西田 颯梓","nishidasoshi"],
   ["東野 蒼汰","tonosota"],
-  ["藤牧 大雅","fujimakitaiga"],
+  ["藤牧 大雅","fujimakita"],
   ["松田 太雅","matsudataiga"],
   ["金倉 拓未","kanakuratakumi"],
   ["熊部 拓斗","kumabetakuto"],
@@ -704,7 +686,9 @@ const candidates =
 
     slug:p[1],
 
-    image:IMAGE_BASE+p[1]+".jpg",
+    image:
+      CUSTOM_IMAGES[p[1]] ||
+      IMAGE_BASE+p[1]+".jpg",
 
     rating:1500,
 
