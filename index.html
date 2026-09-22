@@ -6,7 +6,9 @@
 <title>PRODUCE 101 JAPAN 新世界｜好き顔9選</title>
 
 <style>
-*{box-sizing:border-box}
+*{
+  box-sizing:border-box;
+}
 
 :root{
   --pink:#f39abb;
@@ -151,15 +153,25 @@ button{
   margin:18px 0 13px;
 }
 
+
+/* =========================
+   2枚を横並び
+========================= */
+
 .choices{
   display:grid;
-  grid-template-columns:1fr 1fr;
+  grid-template-columns:repeat(2,minmax(0,1fr));
   gap:12px;
+  width:100%;
 }
 
 .choice{
+  display:block;
+  width:100%;
+  min-width:0;
   border:0;
   padding:0;
+  margin:0;
   background:white;
   border-radius:19px;
   overflow:hidden;
@@ -173,10 +185,11 @@ button{
 }
 
 .photo{
+  display:block;
   width:100%;
+  height:auto;
   aspect-ratio:3/4;
   object-fit:cover;
-  display:block;
   background:#f5edf1;
 }
 
@@ -282,6 +295,7 @@ button{
 }
 
 @media(max-width:350px){
+
   .app{
     padding-left:11px;
     padding-right:11px;
@@ -294,6 +308,7 @@ button{
   .choice-name{
     font-size:11px;
   }
+
 }
 </style>
 </head>
@@ -302,6 +317,7 @@ button{
 
 <div class="app">
 
+
 <!-- =========================
      START
 ========================= -->
@@ -309,72 +325,118 @@ button{
 <section id="startScreen">
 
   <div class="header">
-    <div class="kicker">PRODUCE 101 JAPAN SHINSEKAI</div>
+
+    <div class="kicker">
+      PRODUCE 101 JAPAN SHINSEKAI
+    </div>
+
     <div class="logo">
       ♡ <span class="pink">好き顔9選</span> ♡
     </div>
+
     <div class="lead">
       あなたの「顔が好き」をランキングにしよう
     </div>
+
   </div>
+
 
   <div class="start-visual">
     💘
   </div>
 
+
   <div class="info">
+
     日プ新世界の参加者から<br>
     「どっちの顔が好き？」を直感で選んでね♡<br>
-    <b>選んだ結果からあなた専用TOP9を作ります。</b>
+
+    <b>
+      選んだ結果からあなた専用TOP9を作ります。
+    </b>
+
   </div>
 
-  <button class="main-button" id="startButton">
+
+  <button
+    class="main-button"
+    id="startButton"
+  >
     好き顔9選をはじめる ♡
   </button>
 
 </section>
 
 
+
 <!-- =========================
      GAME
 ========================= -->
 
-<section id="gameScreen" class="hidden">
+<section
+  id="gameScreen"
+  class="hidden"
+>
 
   <div class="header">
-    <div class="kicker">PRODUCE 101 JAPAN SHINSEKAI</div>
+
+    <div class="kicker">
+      PRODUCE 101 JAPAN SHINSEKAI
+    </div>
+
     <div class="logo">
       ♡ <span class="pink">好き顔9選</span> ♡
     </div>
+
   </div>
+
 
   <div class="progress-area">
 
     <div class="progress-label">
-      <span id="phaseLabel">全体比較</span>
-      <span id="progressText">0 / 0</span>
+
+      <span id="phaseLabel">
+        全体比較
+      </span>
+
+      <span id="progressText">
+        0 / 0
+      </span>
+
     </div>
 
+
     <div class="progress">
-      <div class="progress-bar" id="progressBar"></div>
+
+      <div
+        class="progress-bar"
+        id="progressBar"
+      ></div>
+
     </div>
 
   </div>
+
 
   <div class="question">
     どっちの顔が好き？
   </div>
 
+
+  <!-- ★ここが横2列 -->
+
   <div class="choices">
 
-    <button class="choice" id="leftChoice">
+    <button
+      class="choice"
+      id="leftChoice"
+    >
 
       <img
         class="photo"
         id="leftImage"
         alt=""
-        referrerpolicy="no-referrer"
-        >
+      >
 
       <div
         class="choice-name"
@@ -383,14 +445,17 @@ button{
 
     </button>
 
-    <button class="choice" id="rightChoice">
+
+    <button
+      class="choice"
+      id="rightChoice"
+    >
 
       <img
         class="photo"
         id="rightImage"
         alt=""
-        referrerpolicy="no-referrer"
-        >
+      >
 
       <div
         class="choice-name"
@@ -401,6 +466,7 @@ button{
 
   </div>
 
+
   <div class="hint">
     直感でOK♡
   </div>
@@ -408,11 +474,15 @@ button{
 </section>
 
 
+
 <!-- =========================
      RESULT
 ========================= -->
 
-<section id="resultScreen" class="hidden">
+<section
+  id="resultScreen"
+  class="hidden"
+>
 
   <div class="result-header">
 
@@ -430,10 +500,12 @@ button{
 
   </div>
 
+
   <div
     class="result-grid"
     id="ranking"
   ></div>
+
 
   <div class="result-actions">
 
@@ -444,6 +516,7 @@ button{
       結果をXに投稿する ♡
     </button>
 
+
     <button
       class="secondary-button"
       id="restartButton"
@@ -453,14 +526,18 @@ button{
 
   </div>
 
+
   <div class="note">
+
     ※この結果は本ゲーム内での顔の好みに基づくランキングです。<br>
     番組公式順位・人気順位・投票結果とは関係ありません。
+
   </div>
 
 </section>
 
 </div>
+
 
 
 <script>
@@ -473,11 +550,9 @@ const IMAGE_BASE =
 "https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/";
 
 
-/*
-  公式プロフィールで使われている英字IDを利用。
-  画像が現在公式サイトから取得できない候補生については
-  自動でプレースホルダーを表示します。
-*/
+/* ============================================================
+   人物
+============================================================ */
 
 const PEOPLE = [
 
@@ -587,6 +662,7 @@ const PEOPLE = [
   ["板倉 悠太","itakurayuta"],
   ["釼持 吉成","kenmotsukinari"],
 
+
   /* =========================
      練習生候補
   ========================= */
@@ -613,46 +689,37 @@ const PEOPLE = [
   ["保里 瑛都","horieito"]
 
 ];
+
+
 /* ============================================================
-   人物データを生成
+   人物データ生成
 ============================================================ */
 
-const candidates = PEOPLE.map((p,index)=>({
+const candidates =
+  PEOPLE.map((p,index)=>({
 
-  id:String(index+1),
+    id:String(index+1),
 
-  name:p[0],
+    name:p[0],
 
-  slug:p[1],
+    slug:p[1],
 
-  image:IMAGE_BASE+p[1]+".jpg",
+    image:IMAGE_BASE+p[1]+".jpg",
 
-  rating:1500,
+    rating:1500,
 
-  comparisons:0,
+    comparisons:0,
 
-  wins:0,
+    wins:0,
 
-  losses:0
+    losses:0
 
-}));
+  }));
 
 
 /* ============================================================
    ゲーム設定
 ============================================================ */
-
-/*
-  121人の場合、
-
-  121 × 8 ÷ 2 ≒ 484比較
-
-  なので、
-  「全員が最低8回程度比較される」
-  ことを目標にする。
-
-  その後、上位18人を決勝へ。
-*/
 
 const INITIAL_TARGET =
   candidates.length * 8 / 2;
@@ -666,14 +733,17 @@ const FINAL_ROUNDS = 60;
    状態
 ============================================================ */
 
-let players = [];
-let phase = "initial";
-let round = 0;
+let players=[];
 
-let currentLeft = null;
-let currentRight = null;
+let phase="initial";
 
-let resultPeople = [];
+let round=0;
+
+let currentLeft=null;
+
+let currentRight=null;
+
+let resultPeople=[];
 
 
 /* ============================================================
@@ -733,21 +803,19 @@ const ranking =
    画像エラー対策
 ============================================================ */
 
-function setImage(img, person){
+function setImage(img,person){
 
-  // 公式サイトから画像を読み込む際、
-  // GitHub Pages側のURLをRefererとして送らない
-  img.referrerPolicy = "no-referrer";
+  img.onerror=()=>{
 
-  img.onerror = () => {
+    img.onerror=null;
 
-    img.onerror = null;
+    const svg=`
 
-    const svg = `
       <svg
         xmlns="http://www.w3.org/2000/svg"
         viewBox="0 0 600 800"
       >
+
         <rect
           width="600"
           height="800"
@@ -776,16 +844,19 @@ function setImage(img, person){
         >
           PROFILE
         </text>
+
       </svg>
+
     `;
 
-    img.src =
-      "data:image/svg+xml;charset=UTF-8," +
+    img.src=
+      "data:image/svg+xml;charset=UTF-8,"+
       encodeURIComponent(svg);
 
   };
 
-  img.src = person.image;
+  img.src=person.image;
+
 }
 
 
@@ -807,7 +878,7 @@ function escapeSvg(text){
 
 function startGame(){
 
-  players =
+  players=
     candidates.map(p=>({
 
       ...p,
@@ -840,82 +911,81 @@ function startGame(){
 
 
 /* ============================================================
-   初期比較のペア選択
+   初期比較ペア
 ============================================================ */
 
 function chooseInitialPair(){
 
-  /*
-    比較回数が少ない人を優先。
-  */
-
-  const min =
+  const min=
     Math.min(
-      ...players.map(p=>p.comparisons)
+      ...players.map(
+        p=>p.comparisons
+      )
     );
 
-  let pool =
+
+  const pool=
     players.filter(
       p=>p.comparisons<=min+1
     );
 
-  /*
-    左側をランダム。
-  */
 
-  const left =
+  const left=
     pool[
       Math.floor(
         Math.random()*pool.length
       )
     ];
 
-  /*
-    相手は、
 
-    ① まだ比較回数が少ない
-    ② レーティングが近い
-
-    の両方を考える。
-  */
-
-  let opponents =
+  const opponents=
     players
-      .filter(p=>p.id!==left.id)
+      .filter(
+        p=>p.id!==left.id
+      )
       .sort((a,b)=>{
 
-        const countDifference =
+        const countDifference=
           a.comparisons-b.comparisons;
 
-        const ratingDifference =
+        const ratingDifference=
           Math.abs(
             a.rating-left.rating
-          ) -
+          )-
           Math.abs(
             b.rating-left.rating
           );
 
-        return (
-          countDifference*20 +
+        return(
+          countDifference*20+
           ratingDifference
         );
 
       });
 
-  const top =
+
+  const top=
     opponents.slice(
       0,
-      Math.min(14,opponents.length)
+      Math.min(
+        14,
+        opponents.length
+      )
     );
 
-  const right =
+
+  const right=
     top[
       Math.floor(
         Math.random()*top.length
       )
     ];
 
-  return [left,right];
+
+  return[
+    left,
+    right
+  ];
 
 }
 
@@ -926,23 +996,15 @@ function chooseInitialPair(){
 
 function chooseFinalPair(){
 
-  /*
-    決勝はスコアが近い人同士を
-    優先して比較する。
-  */
-
-  const sorted =
+  const sorted=
     [...players]
       .sort(
-        (a,b)=>b.rating-a.rating
+        (a,b)=>
+          b.rating-a.rating
       );
 
-  /*
-    上位を中心にしつつ、
-    なるべく全員が決勝でも比較されるようにする。
-  */
 
-  let left =
+  const left=
     sorted[
       Math.floor(
         Math.random()*
@@ -953,7 +1015,8 @@ function chooseFinalPair(){
       )
     ];
 
-  let opponents =
+
+  const opponents=
     sorted
       .filter(
         p=>p.id!==left.id
@@ -962,26 +1025,35 @@ function chooseFinalPair(){
         (a,b)=>
           Math.abs(
             a.rating-left.rating
-          ) -
+          )-
           Math.abs(
             b.rating-left.rating
           )
       );
 
-  const pool =
+
+  const pool=
     opponents.slice(
       0,
-      Math.min(8,opponents.length)
+      Math.min(
+        8,
+        opponents.length
+      )
     );
 
-  let right =
+
+  const right=
     pool[
       Math.floor(
         Math.random()*pool.length
       )
     ];
 
-  return [left,right];
+
+  return[
+    left,
+    right
+  ];
 
 }
 
@@ -994,14 +1066,17 @@ function nextQuestion(){
 
   let total;
 
+
   if(phase==="initial"){
 
-    total =
-      Math.ceil(INITIAL_TARGET);
+    total=
+      Math.ceil(
+        INITIAL_TARGET
+      );
 
   }else{
 
-    total =
+    total=
       FINAL_ROUNDS;
 
   }
@@ -1017,6 +1092,7 @@ function nextQuestion(){
 
     }
 
+
     showResult();
 
     return;
@@ -1026,22 +1102,25 @@ function nextQuestion(){
 
   let pair;
 
+
   if(phase==="initial"){
 
-    pair =
+    pair=
       chooseInitialPair();
 
   }else{
 
-    pair =
+    pair=
       chooseFinalPair();
 
   }
 
 
-  currentLeft=pair[0];
+  currentLeft=
+    pair[0];
 
-  currentRight=pair[1];
+  currentRight=
+    pair[1];
 
 
   setImage(
@@ -1055,34 +1134,34 @@ function nextQuestion(){
   );
 
 
-  leftImage.alt =
+  leftImage.alt=
     currentLeft.name;
 
-  rightImage.alt =
+  rightImage.alt=
     currentRight.name;
 
 
-  leftName.textContent =
+  leftName.textContent=
     currentLeft.name;
 
-  rightName.textContent =
+  rightName.textContent=
     currentRight.name;
 
 
   round++;
 
 
-  progressText.textContent =
+  progressText.textContent=
     `${round} / ${total}`;
 
 
-  phaseLabel.textContent =
+  phaseLabel.textContent=
     phase==="initial"
       ? "全体比較"
       : "TOP9決定戦";
 
 
-  progressBar.style.width =
+  progressBar.style.width=
     `${Math.min(
       100,
       round/total*100
@@ -1092,7 +1171,7 @@ function nextQuestion(){
 
 
 /* ============================================================
-   勝敗処理
+   勝敗
 ============================================================ */
 
 function chooseWinner(
@@ -1100,18 +1179,14 @@ function chooseWinner(
   loser
 ){
 
-  const winnerRating =
+  const winnerRating=
     winner.rating;
 
-  const loserRating =
+  const loserRating=
     loser.rating;
 
 
-  /*
-    Elo期待値
-  */
-
-  const expectedWinner =
+  const expectedWinner=
     1/
     (
       1+
@@ -1125,24 +1200,18 @@ function chooseWinner(
     );
 
 
-  /*
-    初期は32、
-    決勝は20。
-
-    決勝ほど順位を安定させる。
-  */
-
-  const K =
+  const K=
     phase==="initial"
       ? 32
       : 20;
 
 
-  winner.rating =
+  winner.rating=
     winnerRating+
     K*(1-expectedWinner);
 
-  loser.rating =
+
+  loser.rating=
     loserRating-
     K*(1-expectedWinner);
 
@@ -1167,14 +1236,11 @@ function chooseWinner(
 
 function startFinal(){
 
-  /*
-    全体比較の結果から上位18人を選ぶ。
-  */
-
-  players =
+  players=
     [...players]
       .sort(
-        (a,b)=>b.rating-a.rating
+        (a,b)=>
+          b.rating-a.rating
       )
       .slice(
         0,
@@ -1194,7 +1260,7 @@ function startFinal(){
 
 
 /* ============================================================
-   最終ランキング
+   結果
 ============================================================ */
 
 function showResult(){
@@ -1204,16 +1270,16 @@ function showResult(){
   resultScreen.classList.remove("hidden");
 
 
-  /*
-    決勝のレーティング順。
-  */
-
-  resultPeople =
+  resultPeople=
     [...players]
       .sort(
-        (a,b)=>b.rating-a.rating
+        (a,b)=>
+          b.rating-a.rating
       )
-      .slice(0,9);
+      .slice(
+        0,
+        9
+      );
 
 
   ranking.innerHTML="";
@@ -1222,14 +1288,14 @@ function showResult(){
   resultPeople.forEach(
     (person,index)=>{
 
-      const card =
+      const card=
         document.createElement("div");
 
       card.className=
         "result-card";
 
 
-      const img =
+      const img=
         document.createElement("img");
 
       img.className=
@@ -1238,22 +1304,24 @@ function showResult(){
       img.alt=
         person.name;
 
+
       setImage(
         img,
         person
       );
 
 
-      const rank =
+      const rank=
         document.createElement("div");
 
-      rank.className="rank";
+      rank.className=
+        "rank";
 
       rank.textContent=
         index+1;
 
 
-      const name =
+      const name=
         document.createElement("div");
 
       name.className=
@@ -1289,7 +1357,7 @@ shareButton.addEventListener(
       return;
 
 
-    const text =
+    const text=
       [
         "💘 PRODUCE 101 JAPAN 新世界",
         "♡ 好き顔9選 ♡",
@@ -1305,7 +1373,7 @@ shareButton.addEventListener(
       ].join("\n");
 
 
-    const url =
+    const url=
       "https://twitter.com/intent/tweet?text="+
       encodeURIComponent(text);
 
@@ -1329,27 +1397,49 @@ startButton.addEventListener(
   startGame
 );
 
+
 restartButton.addEventListener(
   "click",
   startGame
 );
 
+
 leftChoice.addEventListener(
   "click",
   ()=>{
-    if(!currentLeft || !currentRight) return;
-    chooseWinner(currentLeft,currentRight);
+
+    if(
+      !currentLeft||
+      !currentRight
+    )
+      return;
+
+    chooseWinner(
+      currentLeft,
+      currentRight
+    );
+
   }
 );
+
 
 rightChoice.addEventListener(
   "click",
   ()=>{
-    if(!currentLeft || !currentRight) return;
-    chooseWinner(currentRight,currentLeft);
+
+    if(
+      !currentLeft||
+      !currentRight
+    )
+      return;
+
+    chooseWinner(
+      currentRight,
+      currentLeft
+    );
+
   }
 );
-
 
 
 /* ============================================================
