@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>PRODUCE 101 JAPAN 新世界｜好き顔9選</title>
+
+<style>
+*{box-sizing:border-box}
+
+:root{
+  --pink:#f39abb;
+  --pink2:#fff0f6;
+  --text:#333;
+  --muted:#999;
+  --line:#f0dce5;
+  --white:#fff;
+}
+
+html,body{
+  margin:0;
+  padding:0;
+  background:#fff8fb;
+  color:var(--text);
+  font-family:
+    -apple-system,
+    BlinkMacSystemFont,
+    "Helvetica Neue",
+    "Hiragino Kaku Gothic ProN",
+    "Yu Gothic",
+    sans-serif;
+}
+
+button{
+  font:inherit;
+}
+
+.app{
+  width:100%;
+  max-width:520px;
+  margin:auto;
+  padding:24px 16px 48px;
+}
+
+.hidden{
+  display:none!important;
+}
+
+.header{
+  text-align:center;
+}
+
+.kicker{
+  font-size:11px;
+  letter-spacing:.12em;
+  color:#aaa;
+}
+
+.logo{
+  margin:5px 0 0;
+  font-size:25px;
+  font-weight:900;
+  letter-spacing:.02em;
+}
+
+.pink{
+  color:var(--pink);
+}
+
+.lead{
+  margin:5px 0 0;
+  color:#777;
+  font-size:13px;
+}
+
+.start-visual{
+  margin:42px auto 24px;
+  width:180px;
+  height:180px;
+  border-radius:50%;
+  background:linear-gradient(
+    145deg,
+    #fff,
+    #ffe8f2
+  );
+  display:grid;
+  place-items:center;
+  font-size:72px;
+  box-shadow:0 12px 35px rgba(230,130,170,.15);
+}
+
+.info{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:18px;
+  padding:17px;
+  margin-top:22px;
+  text-align:center;
+  font-size:13px;
+  line-height:1.8;
+}
+
+.main-button{
+  width:100%;
+  border:0;
+  border-radius:999px;
+  background:var(--pink);
+  color:white;
+  font-weight:800;
+  padding:16px;
+  margin-top:22px;
+  cursor:pointer;
+  box-shadow:0 8px 20px rgba(239,145,180,.22);
+}
+
+.main-button:active{
+  transform:scale(.98);
+}
+
+.progress-area{
+  margin:24px 0 15px;
+}
+
+.progress-label{
+  display:flex;
+  justify-content:space-between;
+  font-size:11px;
+  color:#aaa;
+  margin-bottom:7px;
+}
+
+.progress{
+  width:100%;
+  height:6px;
+  background:#f0e5e9;
+  border-radius:999px;
+  overflow:hidden;
+}
+
+.progress-bar{
+  height:100%;
+  width:0;
+  background:var(--pink);
+  transition:width .25s ease;
+}
+
+.question{
+  text-align:center;
+  font-weight:800;
+  font-size:17px;
+  margin:18px 0 13px;
+}
+
+.choices{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:12px;
+}
+
+.choice{
+  border:0;
+  padding:0;
+  background:white;
+  border-radius:19px;
+  overflow:hidden;
+  box-shadow:0 5px 20px rgba(100,50,70,.09);
+  cursor:pointer;
+  transition:transform .13s,opacity .13s;
+}
+
+.choice:active{
+  transform:scale(.965);
+}
+
+.photo{
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  display:block;
+  background:#f5edf1;
+}
+
+.choice-name{
+  min-height:47px;
+  display:grid;
+  place-items:center;
+  padding:8px 5px;
+  font-size:13px;
+  font-weight:800;
+}
+
+.hint{
+  text-align:center;
+  color:#aaa;
+  font-size:11px;
+  margin-top:14px;
+}
+
+.result-header{
+  text-align:center;
+  margin-bottom:20px;
+}
+
+.result-header h2{
+  margin:7px 0 2px;
+  font-size:28px;
+}
+
+.result-header p{
+  margin:0;
+  font-size:12px;
+  color:#aaa;
+}
+
+.result-grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:7px;
+}
+
+.result-card{
+  position:relative;
+  background:#fff;
+  border-radius:12px;
+  overflow:hidden;
+  box-shadow:0 2px 10px rgba(80,40,60,.07);
+}
+
+.result-photo{
+  width:100%;
+  aspect-ratio:1;
+  object-fit:cover;
+  display:block;
+  background:#f5edf1;
+}
+
+.rank{
+  position:absolute;
+  left:5px;
+  top:5px;
+  width:25px;
+  height:25px;
+  border-radius:50%;
+  background:#fff;
+  display:grid;
+  place-items:center;
+  font-size:11px;
+  font-weight:900;
+}
+
+.result-name{
+  text-align:center;
+  padding:7px 2px 9px;
+  font-size:10px;
+  line-height:1.25;
+  font-weight:800;
+}
+
+.result-actions{
+  display:grid;
+  gap:9px;
+  margin-top:18px;
+}
+
+.secondary-button{
+  width:100%;
+  border:1px solid var(--line);
+  border-radius:999px;
+  background:#fff;
+  padding:13px;
+  font-weight:800;
+  color:#777;
+  cursor:pointer;
+}
+
+.note{
+  text-align:center;
+  color:#aaa;
+  font-size:10px;
+  line-height:1.7;
+  margin:17px 5px 0;
+}
+
+@media(max-width:350px){
+  .app{
+    padding-left:11px;
+    padding-right:11px;
+  }
+
+  .choices{
+    gap:8px;
+  }
+
+  .choice-name{
+    font-size:11px;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div class="app">
+
+<!-- =========================
+     START
+========================= -->
+
+<section id="startScreen">
+
+  <div class="header">
+    <div class="kicker">PRODUCE 101 JAPAN SHINSEKAI</div>
+    <div class="logo">
+      ♡ <span class="pink">好き顔9選</span> ♡
+    </div>
+    <div class="lead">
+      あなたの「顔が好き」をランキングにしよう
+    </div>
+  </div>
+
+  <div class="start-visual">
+    💘
+  </div>
+
+  <div class="info">
+    日プ新世界の参加者から<br>
+    「どっちの顔が好き？」を直感で選んでね♡<br>
+    <b>選んだ結果からあなた専用TOP9を作ります。</b>
+  </div>
+
+  <button class="main-button" id="startButton">
+    好き顔9選をはじめる ♡
+  </button>
+
+</section>
+
+
+<!-- =========================
+     GAME
+========================= -->
+
+<section id="gameScreen" class="hidden">
+
+  <div class="header">
+    <div class="kicker">PRODUCE 101 JAPAN SHINSEKAI</div>
+    <div class="logo">
+      ♡ <span class="pink">好き顔9選</span> ♡
+    </div>
+  </div>
+
+  <div class="progress-area">
+
+    <div class="progress-label">
+      <span id="phaseLabel">全体比較</span>
+      <span id="progressText">0 / 0</span>
+    </div>
+
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+
+  </div>
+
+  <div class="question">
+    どっちの顔が好き？
+  </div>
+
+  <div class="choices">
+
+    <button class="choice" id="leftChoice">
+
+      <img
+        class="photo"
+        id="leftImage"
+        alt=""
+      >
+
+      <div
+        class="choice-name"
+        id="leftName"
+      ></div>
+
+    </button>
+
+    <button class="choice" id="rightChoice">
+
+      <img
+        class="photo"
+        id="rightImage"
+        alt=""
+      >
+
+      <div
+        class="choice-name"
+        id="rightName"
+      ></div>
+
+    </button>
+
+  </div>
+
+  <div class="hint">
+    直感でOK♡
+  </div>
+
+</section>
+
+
+<!-- =========================
+     RESULT
+========================= -->
+
+<section id="resultScreen" class="hidden">
+
+  <div class="result-header">
+
+    <div class="kicker">
+      PRODUCE 101 JAPAN SHINSEKAI
+    </div>
+
+    <h2>
+      ♡ YOUR TOP 9 ♡
+    </h2>
+
+    <p>
+      あなたの好き顔ランキング
+    </p>
+
+  </div>
+
+  <div
+    class="result-grid"
+    id="ranking"
+  ></div>
+
+  <div class="result-actions">
+
+    <button
+      class="main-button"
+      id="shareButton"
+    >
+      結果をXに投稿する ♡
+    </button>
+
+    <button
+      class="secondary-button"
+      id="restartButton"
+    >
+      もう一回やる
+    </button>
+
+  </div>
+
+  <div class="note">
+    ※この結果は本ゲーム内での顔の好みに基づくランキングです。<br>
+    番組公式順位・人気順位・投票結果とは関係ありません。
+  </div>
+
+</section>
+
+</div>
+
+
+<script>
+
+/* ============================================================
+   設定
+============================================================ */
+
+const IMAGE_BASE =
+"https://produce101.jp/static/produce101audition/profile/env7uixvQmE8yymQYP/profile/";
+
+
+/*
+  公式プロフィールで使われている英字IDを利用。
+  画像が現在公式サイトから取得できない候補生については
+  自動でプレースホルダーを表示します。
+*/
+
+const PEOPLE = [
+
+  ["加藤 大樹","katodaiki"],
+  ["柳谷 伊冴","yanagiyaissa"],
+  ["小野 慶人","onokeito"],
+  ["照井 康祐","teruikousuke"],
+  ["飯塚 亮賀","iizukaryoga"],
+  ["杉山 竜司","sugiyamaryuji"],
+  ["オ・シンヘン","oshinhaeng"],
+  ["パク・シヨン","parksiyoung"],
+  ["濱田 永遠","hamadatowa"],
+  ["矢田 佳暉","yadayoshiki"],
+  ["後藤 結","gotoyuki"],
+  ["安部 結蘭","abeyura"],
+  ["アダム・ナガイ","adamnagai"],
+  ["中丸 晏寿","nakamaruaju"],
+  ["本荘 晃","honjoakira"],
+  ["オム・スアンカワーテン","omsuankawaten"],
+  ["アーチャー・ウイ","archeruy"],
+  ["児島 歩夢","kojimaayumu"],
+  ["篠ヶ谷 歩夢","shinogayaayumu"],
+  ["小林 千悟","kobayashichisato"],
+  ["市川 大輝","ichikawadaiki"],
+  ["カク・ドンミン","kwakdongmin"],
+  ["末川 瑛太","suekawaeita"],
+  ["金田 栄都","kanedaeito"],
+  ["櫻井 楓真","sakuraifuma"],
+  ["小笠原 ジュゼッペ 慧","ogasawaragiuseppekei"],
+  ["倉橋 吾槙","kurahashigoten"],
+  ["村松 遼空","muramatsuharuku"],
+  ["髙城 暖人","takagiharuto"],
+  ["堀尾 聖","horiohijiri"],
+  ["平島 輝","hirashimahikaru"],
+  ["瑞慶覧 太都","zukeranh​​iroto"],
+  ["ユ・ヒョンスン","yoohyeonseung"],
+  ["岡田 彪吾","okadahyugo"],
+  ["イ・ヒョンジェ","leehyunjae"],
+  ["ユン・ジェヨン","yoonjaeyong"],
+  ["ジュアン・ジェイ","juanjay"],
+  ["丸尾 尋一郎","marojinichiro"],
+  ["河邊 晟","kawabejoe"],
+  ["シン・ジョンウク","shinjunguk"],
+  ["金安 純正","kaneyasujunsei"],
+  ["リュウ・カイチ","liukaichi"],
+  ["宇野 海夢","unokaimu"],
+  ["多比 奏聖","tabikanade"],
+  ["横山 奏夢","yokoyamakaname"],
+  ["黒﨑 貫汰","kurosakikanta"],
+  ["関 敬次郎","sekikeijiro"],
+  ["黄 敬眞","hwangkeishin"],
+  ["髙松 敬祐","takamatsukeisuke"],
+  ["西山 賢人","nishiyamakento"],
+  ["河合 晃誠","kawaikosei"],
+  ["青沼 昂史朗","aonumakoshiro"],
+  ["浅香 孝太郎","asakakotaro"],
+  ["髙谷 京平","takayakyohei"],
+  ["田中 蒔","tanakamaki"],
+  ["森 明育","morimei"],
+  ["山根 武蔵","yamanemusashi"],
+  ["土田 央修","tsuchidaosuke"],
+  ["堀野 蓮","horinoren"],
+  ["小清水 蓮","koshimizuren"],
+  ["小林 蓮翔","kobayashirento"],
+  ["チェン・リッキー","chenrickey"],
+  ["神元 理丘","kamimotoriku"],
+  ["鳩場 陸人","hatobaririkuto"],
+  ["今江 陸斗","imaerikuto"],
+  ["甲斐 陸也","kairikuya"],
+  ["大瀬 凜和","oserint​​o"],
+  ["水上 琉偉","mizugamirui"],
+  ["上野 琉偉","uenorui"],
+  ["石田 亮太","ishidaryota"],
+  ["岡戸 竜芽","okadoryuga"],
+  ["香月 誠太","katsukiseita"],
+  ["澤井 星名","sawaisena"],
+  ["岩城 慎二","iwakishinji"],
+  ["宮崎 真佑","miyazakishinsuke"],
+  ["西﨑 柊","nishizakishu"],
+  ["山下 柊","yamashitashu"],
+  ["松田 颯吾","matsudasogo"],
+  ["佐藤 碧空","satosora"],
+  ["髙橋 空良","takahashisora"],
+  ["西田 颯梓","nishidasoshi"],
+  ["東野 蒼汰","higashinosota"],
+  ["藤牧 大雅","fujimakitaiga"],
+  ["松田 太雅","matsudataiga"],
+  ["金倉 拓未","kanekur​​atakumi"],
+  ["熊部 拓斗","kumabetakuto"],
+  ["宮里 拓利","miyazatotakuto"],
+  ["岡本 拓士","okamototakuto"],
+  ["南平 達矢","minamihiratatsuya"],
+  ["森井 輝","moriiteru"],
+  ["北林 天虎","kitabayashitetora"],
+  ["藤芳 辰弥","fujiyoshitokiya"],
+  ["増田 倫希","masudatomoki"],
+  ["アギナルド・トリスタン・ジェームス","tristan"],
+  ["リー・ウェイゼ","liuweize"],
+  ["ヨハン・エマニュエル","yohan"],
+  ["岡田 侑磨","okadayuma"],
+  ["大林 悠成","obayashiyusei"],
+  ["佐野 由征","sanoyusei"],
+  ["板倉 悠太","itakurayuta"],
+  ["釼持 吉成","kenmotsukinari"],
+
+  /* 練習生候補 */
+
+  ["川村 珀斗","kawamurahakuto"],
+  ["小谷内 瑠嘉","koyauchiruka"],
+  ["齊藤 惺","saitosei"],
+  ["藤本 真成","fujimotoshinsei"],
+  ["飯田 柊馬","iidashuma"],
+  ["大澤 佑冴","oosawayugo"],
+  ["藤井 雄聖","fujiiyusei"],
+  ["岡本 佑斗","okamotoyuto"],
+  ["小澤 昂心","ozawakoshin"],
+  ["小林 廣","kobayashikou"],
+  ["マイケル ミン・マカフリ","michaelminh"],
+  ["パトリックファン・レ","patrick"],
+  ["笠原 蓮","kasahararen"],
+  ["江口 蓮翔","eguchirento"],
+  ["落合 利温","ochiairio"],
+  ["佐川 太一","sagawahirokazu"],
+  ["阿部 樹","abeitsuki"],
+  ["イ・ジュンフン","leejoonghoon"],
+  ["櫻井 輝","sakuraihikaru"],
+  ["保里 瑛都","horieito"]
+
+];
+
+
+/* ============================================================
+   人物データを生成
+============================================================ */
+
+const candidates = PEOPLE.map((p,index)=>({
+
+  id:String(index+1),
+
+  name:p[0],
+
+  slug:p[1],
+
+  image:IMAGE_BASE+p[1]+".jpg",
+
+  rating:1500,
+
+  comparisons:0,
+
+  wins:0,
+
+  losses:0
+
+}));
+
+
+/* ============================================================
+   ゲーム設定
+============================================================ */
+
+/*
+  121人の場合、
+
+  121 × 8 ÷ 2 ≒ 484比較
+
+  なので、
+  「全員が最低8回程度比較される」
+  ことを目標にする。
+
+  その後、上位18人を決勝へ。
+*/
+
+const INITIAL_TARGET =
+  candidates.length * 8 / 2;
+
+const FINALISTS = 18;
+
+const FINAL_ROUNDS = 60;
+
+
+/* ============================================================
+   状態
+============================================================ */
+
+let players = [];
+let phase = "initial";
+let round = 0;
+
+let currentLeft = null;
+let currentRight = null;
+
+let resultPeople = [];
+
+
+/* ============================================================
+   DOM
+============================================================ */
+
+const startScreen =
+  document.getElementById("startScreen");
+
+const gameScreen =
+  document.getElementById("gameScreen");
+
+const resultScreen =
+  document.getElementById("resultScreen");
+
+const startButton =
+  document.getElementById("startButton");
+
+const restartButton =
+  document.getElementById("restartButton");
+
+const shareButton =
+  document.getElementById("shareButton");
+
+const leftChoice =
+  document.getElementById("leftChoice");
+
+const rightChoice =
+  document.getElementById("rightChoice");
+
+const leftImage =
+  document.getElementById("leftImage");
+
+const rightImage =
+  document.getElementById("rightImage");
+
+const leftName =
+  document.getElementById("leftName");
+
+const rightName =
+  document.getElementById("rightName");
+
+const progressText =
+  document.getElementById("progressText");
+
+const progressBar =
+  document.getElementById("progressBar");
+
+const phaseLabel =
+  document.getElementById("phaseLabel");
+
+const ranking =
+  document.getElementById("ranking");
+
+
+/* ============================================================
+   画像エラー対策
+============================================================ */
+
+function setImage(img,person){
+
+  img.onerror = () => {
+
+    /*
+      公式画像が現在取得できない場合。
+      他サイトの画像を勝手に使わず、
+      名前入りプレースホルダーにする。
+    */
+
+    img.onerror = null;
+
+    const svg = `
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        viewBox="0 0 600 800"
+      >
+        <rect
+          width="600"
+          height="800"
+          fill="#f6edf1"
+        />
+
+        <text
+          x="300"
+          y="350"
+          text-anchor="middle"
+          font-size="34"
+          font-family="sans-serif"
+          font-weight="700"
+          fill="#aaa"
+        >
+          ${escapeSvg(person.name)}
+        </text>
+
+        <text
+          x="300"
+          y="405"
+          text-anchor="middle"
+          font-size="22"
+          font-family="sans-serif"
+          fill="#c5aeb8"
+        >
+          PROFILE
+        </text>
+      </svg>
+    `;
+
+    img.src =
+      "data:image/svg+xml;charset=UTF-8," +
+      encodeURIComponent(svg);
+
+  };
+
+  img.src = person.image;
+}
+
+
+function escapeSvg(text){
+
+  return text
+    .replaceAll("&","&amp;")
+    .replaceAll("<","&lt;")
+    .replaceAll(">","&gt;")
+    .replaceAll('"',"&quot;")
+    .replaceAll("'","&apos;");
+
+}
+
+
+/* ============================================================
+   スタート
+============================================================ */
+
+function startGame(){
+
+  players =
+    candidates.map(p=>({
+
+      ...p,
+
+      rating:1500,
+
+      comparisons:0,
+
+      wins:0,
+
+      losses:0
+
+    }));
+
+  phase="initial";
+
+  round=0;
+
+  resultPeople=[];
+
+  startScreen.classList.add("hidden");
+
+  resultScreen.classList.add("hidden");
+
+  gameScreen.classList.remove("hidden");
+
+  nextQuestion();
+
+}
+
+
+/* ============================================================
+   初期比較のペア選択
+============================================================ */
+
+function chooseInitialPair(){
+
+  /*
+    比較回数が少ない人を優先。
+  */
+
+  const min =
+    Math.min(
+      ...players.map(p=>p.comparisons)
+    );
+
+  let pool =
+    players.filter(
+      p=>p.comparisons<=min+1
+    );
+
+  /*
+    左側をランダム。
+  */
+
+  const left =
+    pool[
+      Math.floor(
+        Math.random()*pool.length
+      )
+    ];
+
+  /*
+    相手は、
+
+    ① まだ比較回数が少ない
+    ② レーティングが近い
+
+    の両方を考える。
+  */
+
+  let opponents =
+    players
+      .filter(p=>p.id!==left.id)
+      .sort((a,b)=>{
+
+        const countDifference =
+          a.comparisons-b.comparisons;
+
+        const ratingDifference =
+          Math.abs(
+            a.rating-left.rating
+          ) -
+          Math.abs(
+            b.rating-left.rating
+          );
+
+        return (
+          countDifference*20 +
+          ratingDifference
+        );
+
+      });
+
+  const top =
+    opponents.slice(
+      0,
+      Math.min(14,opponents.length)
+    );
+
+  const right =
+    top[
+      Math.floor(
+        Math.random()*top.length
+      )
+    ];
+
+  return [left,right];
+
+}
+
+
+/* ============================================================
+   決勝ペア
+============================================================ */
+
+function chooseFinalPair(){
+
+  /*
+    決勝はスコアが近い人同士を
+    優先して比較する。
+  */
+
+  const sorted =
+    [...players]
+      .sort(
+        (a,b)=>b.rating-a.rating
+      );
+
+  /*
+    上位を中心にしつつ、
+    なるべく全員が決勝でも比較されるようにする。
+  */
+
+  let left =
+    sorted[
+      Math.floor(
+        Math.random()*
+        Math.min(
+          sorted.length,
+          FINALISTS
+        )
+      )
+    ];
+
+  let opponents =
+    sorted
+      .filter(
+        p=>p.id!==left.id
+      )
+      .sort(
+        (a,b)=>
+          Math.abs(
+            a.rating-left.rating
+          ) -
+          Math.abs(
+            b.rating-left.rating
+          )
+      );
+
+  const pool =
+    opponents.slice(
+      0,
+      Math.min(8,opponents.length)
+    );
+
+  let right =
+    pool[
+      Math.floor(
+        Math.random()*pool.length
+      )
+    ];
+
+  return [left,right];
+
+}
+
+
+/* ============================================================
+   次の問題
+============================================================ */
+
+function nextQuestion(){
+
+  let total;
+
+  if(phase==="initial"){
+
+    total =
+      Math.ceil(INITIAL_TARGET);
+
+  }else{
+
+    total =
+      FINAL_ROUNDS;
+
+  }
+
+
+  if(round>=total){
+
+    if(phase==="initial"){
+
+      startFinal();
+
+      return;
+
+    }
+
+    showResult();
+
+    return;
+
+  }
+
+
+  let pair;
+
+  if(phase==="initial"){
+
+    pair =
+      chooseInitialPair();
+
+  }else{
+
+    pair =
+      chooseFinalPair();
+
+  }
+
+
+  currentLeft=pair[0];
+
+  currentRight=pair[1];
+
+
+  setImage(
+    leftImage,
+    currentLeft
+  );
+
+  setImage(
+    rightImage,
+    currentRight
+  );
+
+
+  leftImage.alt =
+    currentLeft.name;
+
+  rightImage.alt =
+    currentRight.name;
+
+
+  leftName.textContent =
+    currentLeft.name;
+
+  rightName.textContent =
+    currentRight.name;
+
+
+  round++;
+
+
+  progressText.textContent =
+    `${round} / ${total}`;
+
+
+  phaseLabel.textContent =
+    phase==="initial"
+      ? "全体比較"
+      : "TOP9決定戦";
+
+
+  progressBar.style.width =
+    `${Math.min(
+      100,
+      round/total*100
+    )}%`;
+
+}
+
+
+/* ============================================================
+   勝敗処理
+============================================================ */
+
+function chooseWinner(
+  winner,
+  loser
+){
+
+  const winnerRating =
+    winner.rating;
+
+  const loserRating =
+    loser.rating;
+
+
+  /*
+    Elo期待値
+  */
+
+  const expectedWinner =
+    1/
+    (
+      1+
+      Math.pow(
+        10,
+        (
+          loserRating-
+          winnerRating
+        )/400
+      )
+    );
+
+
+  /*
+    初期は32、
+    決勝は20。
+
+    決勝ほど順位を安定させる。
+  */
+
+  const K =
+    phase==="initial"
+      ? 32
+      : 20;
+
+
+  winner.rating =
+    winnerRating+
+    K*(1-expectedWinner);
+
+  loser.rating =
+    loserRating-
+    K*(1-expectedWinner);
+
+
+  winner.comparisons++;
+
+  loser.comparisons++;
+
+  winner.wins++;
+
+  loser.losses++;
+
+
+  nextQuestion();
+
+}
+
+
+/* ============================================================
+   決勝開始
+============================================================ */
+
+function startFinal(){
+
+  /*
+    全体比較の結果から上位18人を選ぶ。
+  */
+
+  players =
+    [...players]
+      .sort(
+        (a,b)=>b.rating-a.rating
+      )
+      .slice(
+        0,
+        FINALISTS
+      );
+
+
+  phase="final";
+
+  round=0;
+
+  progressBar.style.width="0%";
+
+  nextQuestion();
+
+}
+
+
+/* ============================================================
+   最終ランキング
+============================================================ */
+
+function showResult(){
+
+  gameScreen.classList.add("hidden");
+
+  resultScreen.classList.remove("hidden");
+
+
+  /*
+    決勝のレーティング順。
+  */
+
+  resultPeople =
+    [...players]
+      .sort(
+        (a,b)=>b.rating-a.rating
+      )
+      .slice(0,9);
+
+
+  ranking.innerHTML="";
+
+
+  resultPeople.forEach(
+    (person,index)=>{
+
+      const card =
+        document.createElement("div");
+
+      card.className=
+        "result-card";
+
+
+      const img =
+        document.createElement("img");
+
+      img.className=
+        "result-photo";
+
+      img.alt=
+        person.name;
+
+      setImage(
+        img,
+        person
+      );
+
+
+      const rank =
+        document.createElement("div");
+
+      rank.className="rank";
+
+      rank.textContent=
+        index+1;
+
+
+      const name =
+        document.createElement("div");
+
+      name.className=
+        "result-name";
+
+      name.textContent=
+        person.name;
+
+
+      card.appendChild(img);
+
+      card.appendChild(rank);
+
+      card.appendChild(name);
+
+      ranking.appendChild(card);
+
+    }
+  );
+
+}
+
+
+/* ============================================================
+   X投稿
+============================================================ */
+
+shareButton.addEventListener(
+  "click",
+  ()=>{
+
+    if(!resultPeople.length)
+      return;
+
+
+    const text =
+      [
+        "💘 PRODUCE 101 JAPAN 新世界",
+        "♡ 好き顔9選 ♡",
+        "",
+        ...resultPeople.map(
+          (p,i)=>
+            `${i+1}位 ${p.name}`
+        ),
+        "",
+        "#PRODUCE101JAPAN新世界",
+        "#日プ新世界",
+        "#好き顔9選"
+      ].join("\n");
+
+
+    const url =
+      "https://twitter.com/intent/tweet?text="+
+      encodeURIComponent(text);
+
+
+    window.open(
+      url,
+      "_blank",
+      "noopener,noreferrer"
+    );
+
+  }
+);
+
+
+/* ============================================================
+   ボタン
+============================================================ */
+
+startButton.addEventListener(
+  "click",
+  startGame
+);
+
+restartButton.addEventListener(
+  "click",
+  startGame
+);
+
+
+/* ============================================================
+   初期化
+============================================================ */
+
+if(candidates.length<9){
+
+  alert(
+    "候補者データが不足しています。"
+  );
+
+}
+
+</script>
+
+</body>
+</html>
