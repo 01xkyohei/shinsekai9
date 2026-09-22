@@ -1330,6 +1330,23 @@ restartButton.addEventListener(
   startGame
 );
 
+leftChoice.addEventListener(
+  "click",
+  ()=>{
+    if(!currentLeft || !currentRight) return;
+    chooseWinner(currentLeft,currentRight);
+  }
+);
+
+rightChoice.addEventListener(
+  "click",
+  ()=>{
+    if(!currentLeft || !currentRight) return;
+    chooseWinner(currentRight,currentLeft);
+  }
+);
+
+
 
 /* ============================================================
    初期化
